@@ -1,1 +1,510 @@
-
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Payment API",
+        "description": "This API is responsible for all payment processes",
+        "version": "1.0.0"
+    },
+    "servers": [
+        {
+            "url": "https://api.paygreen.fr/payment",
+            "description": "Production Payment API"
+        },
+        {
+            "url": "https://sb-api.paygreen.fr/payment",
+            "description": "Sandbox Payment API"
+        }
+    ],
+    "paths": {
+        "/payment/buyers": {
+            "get": {
+                "operationId": "get_list_buyers",
+                "parameters": [
+                    {
+                        "name": "shop_id",
+                        "in": "query",
+                        "description": "The shop_id of the Buyers"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "List Buyers"
+                    }
+                },
+                "security": [
+                    {
+                        "PublicKey": []
+                    },
+                    {
+                        "Bearer": [
+                            "SCOPE_SECRET_KEY",
+                            "ROLE_SHOP_READ"
+                        ]
+                    }
+                ]
+            },
+            "post": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/buyers/buy_{id}": {
+            "get": {
+                "operationId": "get_app_buyer_get__invoke",
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns a Buyer"
+                    }
+                }
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/instruments": {
+            "get": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/instruments/ins_{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/payment-configs/availability": {
+            "post": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/payment-configs": {
+            "get": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/payment-configs/pc_{id}": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/payment-orders/po_{id}/authorization": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/payment-orders/po_{id}/capture": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/payment-orders": {
+            "get": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "operationId": "post_app_paymentorder_create__invoke",
+                "responses": {
+                    "200": {
+                        "description": "Creates a new Payment Order"
+                    }
+                },
+                "security": [
+                    {
+                        "Bearer": []
+                    }
+                ]
+            }
+        },
+        "/payment/payment-orders/po_{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/payment-orders/po_{id}/refund": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/payment-orders/po_{id}/secrets": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/return/authentication/failure": {
+            "get": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/return/authentication/success": {
+            "get": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/return/authentication/payline": {
+            "post": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/return/restoflash/": {
+            "get": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/selling-contracts": {
+            "get": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/selling-contracts/sc_{id}": {
+            "post": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/tokenize": {
+            "post": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/transactions/tr_{id}": {
+            "get": {
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "pattern": "[[:xdigit:]]{32}"
+                        }
+                    }
+                ],
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/transactions": {
+            "get": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/webhooks/checkout": {
+            "post": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/webhooks/payline": {
+            "get": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/webhooks/checkout/transfers": {
+            "post": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "/payment/api/doc.json": {
+            "get": {
+                "responses": {
+                    "default": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "Bearer": {
+                "type": "http",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            },
+            "PublicKey": {
+                "type": "http",
+                "scheme": "public_key"
+            }
+        }
+    }
+}
