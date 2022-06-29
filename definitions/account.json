@@ -459,7 +459,7 @@
             "description": ""
           }
         },
-        "x-internal": true,
+        "x-internal": false,
         "summary": "Create Shop"
       }
     },
