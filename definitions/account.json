@@ -456,7 +456,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "x-internal": true
       }
     },
     "/account/shops/{id}/onboard": {
