@@ -476,7 +476,7 @@
           "schema": {
             "type": "string",
             "format": "uuid",
-            "pattern": "sh_[[:xdigit:]]{32}"
+            "pattern": "sh_[[:xdigit:]]{31}"
           },
           "name": "id",
           "in": "path",
