@@ -2,8 +2,15 @@
   "openapi": "3.0.0",
   "info": {
     "title": "Account",
-    "description": "This is an awesome app!!",
-    "version": "1.0.0"
+    "description": "",
+    "version": "1.0.0",
+    "contact": {
+      "name": "PayGreen",
+      "url": "https://paygreen.io",
+      "email": "contact@paygreen.fr"
+    },
+    "termsOfService": "https://paygreen.io/cgu/",
+    "license": {}
   },
   "paths": {
     "/account/accounts/{id}": {
@@ -441,7 +448,8 @@
             "description": ""
           }
         },
-        "summary": "Get Shop"
+        "summary": "Get Shop",
+        "operationId": ""
       },
       "post": {
         "parameters": [
@@ -462,7 +470,19 @@
         },
         "x-internal": true,
         "summary": "Update Shop"
-      }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "sh_[[:xdigit:]]{32}"
+          },
+          "name": "id",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
     "/account/shops/{id}/onboard": {
       "post": {
