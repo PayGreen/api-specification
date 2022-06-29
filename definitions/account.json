@@ -3,7 +3,7 @@
     "openapi": "3.0.0",
     "info": {
         "title": "My App",
-        "description": "This is an awesome app!",
+        "description": "This is an awesome app!!",
         "version": "1.0.0"
     },
     "paths": {
