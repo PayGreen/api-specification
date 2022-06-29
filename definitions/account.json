@@ -60,7 +60,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "x-internal": true
       }
     },
     "/account/addresses/add_{id}": {
@@ -99,7 +100,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "x-internal": true
       }
     },
     "/account/compliance-records": {
@@ -116,7 +118,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "x-internal": true
       }
     },
     "/account/compliance-records/cr_{complianceRecord}": {
@@ -156,7 +159,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "x-internal": true
       }
     },
     "/account/compliance-records/cr_{complianceRecord}/submit": {
@@ -226,7 +230,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "x-internal": true
       }
     },
     "/account/files/fi_{file}": {
@@ -295,7 +300,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "x-internal": true
       }
     },
     "/account/contacts/ctc_{id}": {
@@ -334,7 +340,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "x-internal": true
       }
     },
     "/account/head-offices/ho_{id}": {
@@ -373,7 +380,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "x-internal": true
       }
     },
     "/account/head-offices": {
@@ -409,7 +417,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "x-internal": true
       }
     },
     "/account/shops/{id}": {
