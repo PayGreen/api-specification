@@ -511,5 +511,13 @@
       "url": "https://sb-api.paygreen.fr",
       "description": "Sandbox"
     }
-  ]
+  ],
+  "components": {
+    "securitySchemes": {
+      "Authorization": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  }
 }
