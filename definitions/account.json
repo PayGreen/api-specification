@@ -201,19 +201,9 @@
         "x-internal": true
       }
     },
-    "/account/documents/doc_{document}": {
+    "/account/documents/{documentId}": {
       "get": {
-        "parameters": [
-          {
-            "name": "document",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": ""
@@ -222,66 +212,66 @@
         "x-internal": true
       },
       "post": {
-        "parameters": [
-          {
-            "name": "document",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": ""
           }
         },
         "x-internal": true
-      }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "documentId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
-    "/account/files/fi_{file}": {
+    "/account/files/{fileId}": {
       "delete": {
-        "parameters": [
-          {
-            "name": "file",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": ""
           }
         },
         "x-internal": true
-      }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "fileId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
-    "/account/files/fi_{file}/download": {
+    "/account/files/{fileId}/download": {
       "get": {
-        "parameters": [
-          {
-            "name": "file",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": ""
           }
         },
         "x-internal": true
-      }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "fileId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
     "/account/files": {
       "post": {
@@ -311,19 +301,9 @@
         "x-internal": true
       }
     },
-    "/account/contacts/ctc_{id}": {
+    "/account/contacts/{contactId}": {
       "post": {
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": ""
@@ -332,38 +312,28 @@
         "x-internal": true
       },
       "delete": {
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": ""
           }
         },
         "x-internal": true
-      }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "contactId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
-    "/account/head-offices/ho_{id}": {
+    "/account/head-offices/{headOfficeId}": {
       "get": {
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": ""
@@ -372,24 +342,24 @@
         "x-internal": true
       },
       "post": {
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": ""
           }
         },
         "x-internal": true
-      }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "headOfficeId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
     "/account/head-offices": {
       "get": {
@@ -430,39 +400,30 @@
         "summary": "Create Shop"
       }
     },
-    "/account/shops/{id}": {
+    "/account/shops/{shopId}": {
       "get": {
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "sh_[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
-          "default": {
-            "description": ""
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Shop"
+                }
+              }
+            }
+          },
+          "404": {
+            "description": "Not Found"
           }
         },
         "summary": "Get Shop",
-        "operationId": ""
+        "operationId": "",
+        "description": ""
       },
       "post": {
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "sh_[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": ""
@@ -475,56 +436,56 @@
         {
           "schema": {
             "type": "string",
-            "format": "uuid",
-            "pattern": "sh_[[:xdigit:]]{31}"
+            "pattern": "sh_[0-9a-f]{32}",
+            "example": "sh_fa66d4b0518f4632b442b8e0280bef83"
           },
-          "name": "id",
+          "name": "shopId",
           "in": "path",
           "required": true
         }
       ]
     },
-    "/account/shops/{id}/onboard": {
+    "/account/shops/{shopId}/onboard": {
       "post": {
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "sh_[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": ""
           }
         },
         "x-internal": true
-      }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "shopId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
-    "/account/shops/{id}/onboard-wallet": {
+    "/account/shops/{shopId}/onboard-wallet": {
       "post": {
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string",
-              "pattern": "sh_[[:xdigit:]]{32}"
-            }
-          }
-        ],
+        "parameters": [],
         "responses": {
           "default": {
             "description": ""
           }
         },
         "x-internal": true
-      }
+      },
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "shopId",
+          "in": "path",
+          "required": true
+        }
+      ]
     },
     "/account/webhooks/checkout": {
       "post": {
@@ -553,6 +514,358 @@
         "type": "http",
         "scheme": "bearer",
         "description": ""
+      }
+    },
+    "schemas": {
+      "Adresse": {
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "id": "add_39b913f971174323a0238aa97becd03e",
+            "line1": "418 Watsica Rue",
+            "line2": null,
+            "postal_code": "12000",
+            "city": "East Newton",
+            "country": "FRANCE",
+            "state": null
+          }
+        },
+        "title": "Address",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "line1": {
+            "type": "string"
+          },
+          "line2": {
+            "type": "string"
+          },
+          "postal_code": {
+            "type": "string"
+          },
+          "city": {
+            "type": "string"
+          },
+          "country": {
+            "type": "string"
+          },
+          "state": {
+            "type": "string"
+          }
+        },
+        "readOnly": true
+      },
+      "Contact": {
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "id": "ctc_8896ba5426d5477faebe7078fa73807f",
+            "first_name": "Kody",
+            "last_name": "Strosin",
+            "birth_date": "1980-01-01T00:00:00+00:00",
+            "email": null,
+            "phone": "+33612345678",
+            "capital_shares": null,
+            "city_of_birth": null,
+            "native_country": null,
+            "address": {
+              "line1": "97631 Electa Court Suite 771",
+              "line2": null,
+              "city": "Lake Amelia",
+              "postal_code": "12000",
+              "country": "FRANCE",
+              "state": null
+            },
+            "nationality": null,
+            "external_id": null
+          }
+        },
+        "title": "Contact",
+        "properties": {
+          "id": {
+            "type": "string",
+            "readOnly": true
+          },
+          "first_name": {
+            "type": "string"
+          },
+          "last_name": {
+            "type": "string"
+          },
+          "birth_date": {
+            "type": "string"
+          },
+          "email": {
+            "type": "string"
+          },
+          "phone": {
+            "type": "string"
+          },
+          "capital_shares": {
+            "nullable": true
+          },
+          "city_of_birth": {
+            "type": "string"
+          },
+          "native_country": {
+            "type": "string"
+          },
+          "address": {
+            "$ref": "#/components/schemas/Adresse"
+          },
+          "nationality": {
+            "type": "string"
+          },
+          "external_id": {
+            "type": "string"
+          }
+        }
+      },
+      "HeadOffice": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "address": {
+            "type": "null"
+          },
+          "address_invoice": {
+            "type": "null"
+          },
+          "name": {
+            "type": "string"
+          },
+          "national_id": {
+            "type": "null"
+          },
+          "legal_category": {
+            "type": "null"
+          },
+          "primary_activity": {
+            "type": "null"
+          },
+          "tva_intracom": {
+            "type": "null"
+          },
+          "creation_date": {
+            "type": "null"
+          }
+        },
+        "x-examples": {
+          "example-1": {
+            "id": "ho_43ef49417b714746bc8364a008d5633e",
+            "address": null,
+            "address_invoice": null,
+            "name": "Siege social - Crooks PLC",
+            "national_id": null,
+            "legal_category": null,
+            "primary_activity": null,
+            "tva_intracom": null,
+            "creation_date": null
+          }
+        },
+        "title": "HeadOffice"
+      },
+      "Shop": {
+        "type": "object",
+        "x-examples": {
+          "example-1": {
+            "id": "sh_8ecb6930af424b62966a12576214346f",
+            "head_office": {
+              "id": "ho_43ef49417b714746bc8364a008d5633e",
+              "address": null,
+              "address_invoice": null,
+              "name": "Siege social - Crooks PLC",
+              "national_id": null,
+              "legal_category": null,
+              "primary_activity": null,
+              "tva_intracom": null,
+              "creation_date": null
+            },
+            "contacts": [
+              {
+                "contact": {
+                  "id": "ctc_8896ba5426d5477faebe7078fa73807f",
+                  "first_name": "Kody",
+                  "last_name": "Strosin",
+                  "birth_date": "1980-01-01T00:00:00+00:00",
+                  "email": null,
+                  "phone": "+33612345678",
+                  "capital_shares": null,
+                  "city_of_birth": null,
+                  "native_country": null,
+                  "address": {
+                    "line1": "97631 Electa Court Suite 771",
+                    "line2": null,
+                    "city": "Lake Amelia",
+                    "postal_code": "12000",
+                    "country": "FRANCE",
+                    "state": null
+                  },
+                  "nationality": null,
+                  "external_id": null
+                },
+                "functions": [
+                  "beneficial_owner"
+                ]
+              }
+            ],
+            "address": {
+              "id": "add_39b913f971174323a0238aa97becd03e",
+              "line1": "418 Watsica Rue",
+              "line2": null,
+              "postal_code": "12000",
+              "city": "East Newton",
+              "country": "FRANCE",
+              "state": null
+            },
+            "address_invoice": null,
+            "status": "onboarding_required",
+            "type": "COMPANY",
+            "name": "Bauch-Pacocha",
+            "commercial_name": "Gleason, Spinka and Borer",
+            "national_id": "25432169874563",
+            "legal_category": null,
+            "primary_activity": null,
+            "creation_date": null,
+            "activity_description": null,
+            "logo": null,
+            "franchise": null,
+            "activity_categories": null,
+            "product_types": null,
+            "economic_model": null,
+            "integration_mode": null,
+            "in_out_config": null,
+            "lang": "fr",
+            "code_naf": null,
+            "website_release_date": null,
+            "website_url": null,
+            "legal_notice_url": null,
+            "customers_nationality": null,
+            "billing_choice": null,
+            "onboarding_kits_choice": null,
+            "external_wallet_entity_id": null,
+            "wallet_onboarding_status": null,
+            "marketplace": false,
+            "account_id": "acc_dfbe45deb7e24879a9925f465b52ff8a"
+          }
+        },
+        "title": "Shop",
+        "description": "",
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "head_office": {
+            "$ref": "#/components/schemas/HeadOffice"
+          },
+          "contacts": {
+            "type": "array",
+            "items": {
+              "$ref": ""
+            }
+          },
+          "address": {
+            "$ref": "#/components/schemas/Adresse"
+          },
+          "address_invoice": {
+            "$ref": "#/components/schemas/Adresse"
+          },
+          "status": {
+            "type": "string",
+            "enum": [
+              "onboarding_required",
+              "in_review",
+              "validated",
+              "disabled"
+            ],
+            "readOnly": true
+          },
+          "type": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "commercial_name": {
+            "type": "string"
+          },
+          "national_id": {
+            "type": "string"
+          },
+          "legal_category": {
+            "nullable": true
+          },
+          "primary_activity": {
+            "nullable": true
+          },
+          "creation_date": {
+            "nullable": true
+          },
+          "activity_description": {
+            "nullable": true
+          },
+          "logo": {
+            "nullable": true
+          },
+          "franchise": {
+            "nullable": true
+          },
+          "activity_categories": {
+            "nullable": true
+          },
+          "product_types": {
+            "nullable": true
+          },
+          "economic_model": {
+            "nullable": true
+          },
+          "integration_mode": {
+            "nullable": true
+          },
+          "in_out_config": {
+            "nullable": true
+          },
+          "lang": {
+            "type": "string"
+          },
+          "code_naf": {
+            "nullable": true
+          },
+          "website_release_date": {
+            "nullable": true
+          },
+          "website_url": {
+            "nullable": true
+          },
+          "legal_notice_url": {
+            "nullable": true
+          },
+          "customers_nationality": {
+            "nullable": true
+          },
+          "billing_choice": {
+            "nullable": true
+          },
+          "onboarding_kits_choice": {
+            "nullable": true
+          },
+          "external_wallet_entity_id": {
+            "nullable": true
+          },
+          "wallet_onboarding_status": {
+            "nullable": true
+          },
+          "marketplace": {
+            "type": "boolean"
+          },
+          "account_id": {
+            "type": "string"
+          }
+        },
+        "readOnly": true
       }
     }
   },
