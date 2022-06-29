@@ -516,8 +516,14 @@
     "securitySchemes": {
       "Authorization": {
         "type": "http",
-        "scheme": "bearer"
+        "scheme": "bearer",
+        "description": ""
       }
     }
-  }
+  },
+  "security": [
+    {
+      "Authorization": []
+    }
+  ]
 }
