@@ -520,10 +520,5 @@
         "description": ""
       }
     }
-  },
-  "security": [
-    {
-      "Authorization": []
-    }
-  ]
+  }
 }
