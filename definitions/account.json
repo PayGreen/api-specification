@@ -410,7 +410,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "summary": "List Shops"
       },
       "post": {
         "responses": {
@@ -438,7 +439,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "summary": "Get Shop"
       },
       "post": {
         "parameters": [
@@ -457,7 +459,8 @@
             "description": ""
           }
         },
-        "x-internal": true
+        "x-internal": true,
+        "summary": "Create Shop"
       }
     },
     "/account/shops/{id}/onboard": {
