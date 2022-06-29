@@ -42,7 +42,8 @@
           "default": {
             "description": ""
           }
-        }
+        },
+        "x-internal": true
       }
     },
     "/account/addresses": {
