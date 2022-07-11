@@ -10,7 +10,9 @@
       "email": "contact@paygreen.fr"
     },
     "termsOfService": "https://paygreen.io/cgu/",
-    "license": {}
+    "license": {
+      "name": "PayGreen"
+    }
   },
   "paths": {
     "/account/accounts/{id}": {
