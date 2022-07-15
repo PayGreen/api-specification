@@ -630,29 +630,8 @@
           "id": {
             "type": "string"
           },
-          "address": {
-            "type": "null"
-          },
-          "address_invoice": {
-            "type": "null"
-          },
           "name": {
             "type": "string"
-          },
-          "national_id": {
-            "type": "null"
-          },
-          "legal_category": {
-            "type": "null"
-          },
-          "primary_activity": {
-            "type": "null"
-          },
-          "tva_intracom": {
-            "type": "null"
-          },
-          "creation_date": {
-            "type": "null"
           }
         },
         "x-examples": {
